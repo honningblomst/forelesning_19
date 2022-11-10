@@ -1,0 +1,26 @@
+import dearpygui.dearpygui as dpg
+
+dpg.create_context()
+dpg.create_viewport(title="Pycharm", width=600, height=400)
+
+with dpg.window(no_title_bar=True, tag="window"):
+    dpg.add_text("Pleaceholder")
+    with dpg.child_window(width=-1, height=50):
+        dpg.add_text("Menu")
+    with dpg.child_window(height=200, width=-1):
+        with dpg.group(horizontal=True):
+            with dpg.child_window(height=-1, width=150):
+                dpg.add_text("Files")
+                with dpg.tree_node(label="forelesning_19"):
+                    dpg.add_text("pycharm_gui.py")
+                    dpg.add_text("template.py")
+            with dpg.child_window(height=-1, width=-1):
+                dpg.add_input_text(multiline=True, height=-1, width=-1)
+    with dpg.child_window(height=-1, width=-1):
+        dpg.add_text("Terminal")
+
+dpg.setup_dearpygui()
+dpg.show_viewport()
+dpg.set_primary_window("window", True)
+dpg.start_dearpygui()
+dpg.destroy_context()
